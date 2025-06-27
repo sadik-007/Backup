@@ -3,6 +3,7 @@
     partial class CustomerHomePage
     {
         private System.ComponentModel.IContainer components = null;
+
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -91,7 +92,7 @@
             this.lblShopName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(123)))), ((int)(((byte)(255)))));
             this.lblShopName.Location = new System.Drawing.Point(25, 17);
             this.lblShopName.Name = "lblShopName";
-            this.lblShopName.Size = new System.Drawing.Size(164, 45);
+            this.lblShopName.Size = new System.Drawing.Size(184, 45);
             this.lblShopName.TabIndex = 0;
             this.lblShopName.Text = "Tech Hub";
             // 
@@ -129,7 +130,7 @@
             this.btnComputer.Location = new System.Drawing.Point(30, 9);
             this.btnComputer.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.btnComputer.Name = "btnComputer";
-            this.btnComputer.Size = new System.Drawing.Size(110, 35);
+            this.btnComputer.Size = new System.Drawing.Size(95, 35);
             this.btnComputer.TabIndex = 0;
             this.btnComputer.Text = "Computer";
             this.btnComputer.UseVisualStyleBackColor = true;
@@ -140,7 +141,7 @@
             this.btnWatch.FlatAppearance.BorderSize = 0;
             this.btnWatch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnWatch.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.btnWatch.Location = new System.Drawing.Point(150, 9);
+            this.btnWatch.Location = new System.Drawing.Point(135, 9);
             this.btnWatch.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.btnWatch.Name = "btnWatch";
             this.btnWatch.Size = new System.Drawing.Size(89, 35);
@@ -154,7 +155,7 @@
             this.btnPhone.FlatAppearance.BorderSize = 0;
             this.btnPhone.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPhone.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.btnPhone.Location = new System.Drawing.Point(249, 9);
+            this.btnPhone.Location = new System.Drawing.Point(234, 9);
             this.btnPhone.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.btnPhone.Name = "btnPhone";
             this.btnPhone.Size = new System.Drawing.Size(79, 35);
@@ -168,10 +169,10 @@
             this.btnTablet.FlatAppearance.BorderSize = 0;
             this.btnTablet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTablet.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.btnTablet.Location = new System.Drawing.Point(338, 9);
+            this.btnTablet.Location = new System.Drawing.Point(323, 9);
             this.btnTablet.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.btnTablet.Name = "btnTablet";
-            this.btnTablet.Size = new System.Drawing.Size(86, 41);
+            this.btnTablet.Size = new System.Drawing.Size(86, 35);
             this.btnTablet.TabIndex = 3;
             this.btnTablet.Text = "Tablet";
             this.btnTablet.UseVisualStyleBackColor = true;
@@ -182,7 +183,7 @@
             this.btnCamera.FlatAppearance.BorderSize = 0;
             this.btnCamera.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCamera.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.btnCamera.Location = new System.Drawing.Point(434, 9);
+            this.btnCamera.Location = new System.Drawing.Point(419, 9);
             this.btnCamera.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.btnCamera.Name = "btnCamera";
             this.btnCamera.Size = new System.Drawing.Size(85, 35);
@@ -196,7 +197,7 @@
             this.btnTV.FlatAppearance.BorderSize = 0;
             this.btnTV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTV.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.btnTV.Location = new System.Drawing.Point(529, 9);
+            this.btnTV.Location = new System.Drawing.Point(514, 9);
             this.btnTV.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.btnTV.Name = "btnTV";
             this.btnTV.Size = new System.Drawing.Size(56, 35);
@@ -222,7 +223,6 @@
             this.pnlHeader.PerformLayout();
             this.pnlCategories.ResumeLayout(false);
             this.ResumeLayout(false);
-
         }
         #endregion
 
