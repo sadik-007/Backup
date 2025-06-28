@@ -141,5 +141,10 @@ namespace ProjectPP
         {
 
         }
+
+        private void cmbProductType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
