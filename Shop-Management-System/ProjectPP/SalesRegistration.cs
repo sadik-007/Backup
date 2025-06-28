@@ -110,5 +110,12 @@ namespace ProjectPP
         private void txtusername_TextChanged(object sender, EventArgs e)
         {
         }
+
+        private void linkLabel3_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Starting starting = new Starting();
+            starting.Show();
+            this.Close();
+        }
     }
 }
