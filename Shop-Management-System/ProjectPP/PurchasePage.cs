@@ -46,11 +46,15 @@ namespace ProjectPP
                 btnConfirmPurchase.Enabled = false;
                 btnConfirmPurchase.BackColor = Color.Gray;
             }
+            else
+            {
+                lblUnavailable.Visible = false;
+            }
         }
 
         private void btnConfirmPurchase_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Thank you for your purchase!", "Purchase Confirmed");
+            MessageBox.Show("Thank you for your purchase!", "Purchase Confirmed", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }
     }

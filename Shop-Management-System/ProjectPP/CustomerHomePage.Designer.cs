@@ -23,12 +23,18 @@
             this.lblShopName = new System.Windows.Forms.Label();
             this.pnlBody = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlCategories = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnComputer = new System.Windows.Forms.Button();
-            this.btnWatch = new System.Windows.Forms.Button();
-            this.btnPhone = new System.Windows.Forms.Button();
-            this.btnTablet = new System.Windows.Forms.Button();
-            this.btnCamera = new System.Windows.Forms.Button();
-            this.btnTV = new System.Windows.Forms.Button();
+            this.btnCatALL = new System.Windows.Forms.Button();
+            this.btnCatLaptop = new System.Windows.Forms.Button();
+            this.btnCatDesktop = new System.Windows.Forms.Button();
+            this.btnCatWatch = new System.Windows.Forms.Button();
+            this.btnCatPhone = new System.Windows.Forms.Button();
+            this.btnCatTablet = new System.Windows.Forms.Button();
+            this.btnCatCamera = new System.Windows.Forms.Button();
+            this.btnCatTV = new System.Windows.Forms.Button();
+            this.btnCatMonitor = new System.Windows.Forms.Button();
+            this.btnCatAccessories = new System.Windows.Forms.Button();
+            this.btnCatHeadphones = new System.Windows.Forms.Button();
+            this.btnCatWebcam = new System.Windows.Forms.Button();
             this.pnlHeader.SuspendLayout();
             this.pnlCategories.SuspendLayout();
             this.SuspendLayout();
@@ -84,6 +90,7 @@
             this.txtSearch.Text = "Search Products...";
             this.txtSearch.Enter += new System.EventHandler(this.txtSearch_Enter);
             this.txtSearch.Leave += new System.EventHandler(this.txtSearch_Leave);
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // lblShopName
             // 
@@ -95,6 +102,7 @@
             this.lblShopName.Size = new System.Drawing.Size(184, 45);
             this.lblShopName.TabIndex = 0;
             this.lblShopName.Text = "Tech Hub";
+            this.lblShopName.Click += new System.EventHandler(this.lblShopName_Click);
             // 
             // pnlBody
             // 
@@ -109,102 +117,167 @@
             // pnlCategories
             // 
             this.pnlCategories.BackColor = System.Drawing.Color.White;
-            this.pnlCategories.Controls.Add(this.btnComputer);
-            this.pnlCategories.Controls.Add(this.btnWatch);
-            this.pnlCategories.Controls.Add(this.btnPhone);
-            this.pnlCategories.Controls.Add(this.btnTablet);
-            this.pnlCategories.Controls.Add(this.btnCamera);
-            this.pnlCategories.Controls.Add(this.btnTV);
+            this.pnlCategories.Controls.Add(this.btnCatALL);
+            this.pnlCategories.Controls.Add(this.btnCatLaptop);
+            this.pnlCategories.Controls.Add(this.btnCatDesktop);
+            this.pnlCategories.Controls.Add(this.btnCatWatch);
+            this.pnlCategories.Controls.Add(this.btnCatPhone);
+            this.pnlCategories.Controls.Add(this.btnCatTablet);
+            this.pnlCategories.Controls.Add(this.btnCatCamera);
+            this.pnlCategories.Controls.Add(this.btnCatTV);
+            this.pnlCategories.Controls.Add(this.btnCatMonitor);
+            this.pnlCategories.Controls.Add(this.btnCatAccessories);
+            this.pnlCategories.Controls.Add(this.btnCatHeadphones);
+            this.pnlCategories.Controls.Add(this.btnCatWebcam);
             this.pnlCategories.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlCategories.Location = new System.Drawing.Point(0, 80);
             this.pnlCategories.Name = "pnlCategories";
-            this.pnlCategories.Padding = new System.Windows.Forms.Padding(25, 6, 20, 5);
+            this.pnlCategories.Padding = new System.Windows.Forms.Padding(15, 6, 15, 5);
             this.pnlCategories.Size = new System.Drawing.Size(1282, 50);
             this.pnlCategories.TabIndex = 3;
             // 
-            // btnComputer
+            // btnCatALL
             // 
-            this.btnComputer.FlatAppearance.BorderSize = 0;
-            this.btnComputer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnComputer.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.btnComputer.Location = new System.Drawing.Point(30, 9);
-            this.btnComputer.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.btnComputer.Name = "btnComputer";
-            this.btnComputer.Size = new System.Drawing.Size(95, 35);
-            this.btnComputer.TabIndex = 0;
-            this.btnComputer.Text = "Computer";
-            this.btnComputer.UseVisualStyleBackColor = true;
-            this.btnComputer.Click += new System.EventHandler(this.CategoryButton_Click);
+            this.btnCatALL.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.btnCatALL.Location = new System.Drawing.Point(20, 9);
+            this.btnCatALL.Name = "btnCatALL";
+            this.btnCatALL.Size = new System.Drawing.Size(75, 35);
+            this.btnCatALL.TabIndex = 0;
+            this.btnCatALL.Text = "ALL";
+            this.btnCatALL.UseVisualStyleBackColor = true;
+            this.btnCatALL.Click += new System.EventHandler(this.CategoryButton_Click);
             // 
-            // btnWatch
+            // btnCatLaptop
             // 
-            this.btnWatch.FlatAppearance.BorderSize = 0;
-            this.btnWatch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnWatch.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.btnWatch.Location = new System.Drawing.Point(135, 9);
-            this.btnWatch.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.btnWatch.Name = "btnWatch";
-            this.btnWatch.Size = new System.Drawing.Size(89, 35);
-            this.btnWatch.TabIndex = 1;
-            this.btnWatch.Text = "Watch";
-            this.btnWatch.UseVisualStyleBackColor = true;
-            this.btnWatch.Click += new System.EventHandler(this.CategoryButton_Click);
+            this.btnCatLaptop.AutoSize = true;
+            this.btnCatLaptop.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.btnCatLaptop.Location = new System.Drawing.Point(100, 9);
+            this.btnCatLaptop.Name = "btnCatLaptop";
+            this.btnCatLaptop.Size = new System.Drawing.Size(77, 35);
+            this.btnCatLaptop.TabIndex = 1;
+            this.btnCatLaptop.Text = "Laptop";
+            this.btnCatLaptop.UseVisualStyleBackColor = true;
+            this.btnCatLaptop.Click += new System.EventHandler(this.CategoryButton_Click);
             // 
-            // btnPhone
+            // btnCatDesktop
             // 
-            this.btnPhone.FlatAppearance.BorderSize = 0;
-            this.btnPhone.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPhone.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.btnPhone.Location = new System.Drawing.Point(234, 9);
-            this.btnPhone.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.btnPhone.Name = "btnPhone";
-            this.btnPhone.Size = new System.Drawing.Size(79, 35);
-            this.btnPhone.TabIndex = 2;
-            this.btnPhone.Text = "Phone";
-            this.btnPhone.UseVisualStyleBackColor = true;
-            this.btnPhone.Click += new System.EventHandler(this.CategoryButton_Click);
+            this.btnCatDesktop.AutoSize = true;
+            this.btnCatDesktop.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.btnCatDesktop.Location = new System.Drawing.Point(182, 9);
+            this.btnCatDesktop.Name = "btnCatDesktop";
+            this.btnCatDesktop.Size = new System.Drawing.Size(88, 35);
+            this.btnCatDesktop.TabIndex = 2;
+            this.btnCatDesktop.Text = "Desktop";
+            this.btnCatDesktop.UseVisualStyleBackColor = true;
+            this.btnCatDesktop.Click += new System.EventHandler(this.CategoryButton_Click);
             // 
-            // btnTablet
+            // btnCatWatch
             // 
-            this.btnTablet.FlatAppearance.BorderSize = 0;
-            this.btnTablet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTablet.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.btnTablet.Location = new System.Drawing.Point(323, 9);
-            this.btnTablet.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.btnTablet.Name = "btnTablet";
-            this.btnTablet.Size = new System.Drawing.Size(86, 35);
-            this.btnTablet.TabIndex = 3;
-            this.btnTablet.Text = "Tablet";
-            this.btnTablet.UseVisualStyleBackColor = true;
-            this.btnTablet.Click += new System.EventHandler(this.CategoryButton_Click);
+            this.btnCatWatch.AutoSize = true;
+            this.btnCatWatch.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.btnCatWatch.Location = new System.Drawing.Point(275, 9);
+            this.btnCatWatch.Name = "btnCatWatch";
+            this.btnCatWatch.Size = new System.Drawing.Size(75, 35);
+            this.btnCatWatch.TabIndex = 3;
+            this.btnCatWatch.Text = "Watch";
+            this.btnCatWatch.UseVisualStyleBackColor = true;
+            this.btnCatWatch.Click += new System.EventHandler(this.CategoryButton_Click);
             // 
-            // btnCamera
+            // btnCatPhone
             // 
-            this.btnCamera.FlatAppearance.BorderSize = 0;
-            this.btnCamera.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCamera.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.btnCamera.Location = new System.Drawing.Point(419, 9);
-            this.btnCamera.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.btnCamera.Name = "btnCamera";
-            this.btnCamera.Size = new System.Drawing.Size(85, 35);
-            this.btnCamera.TabIndex = 4;
-            this.btnCamera.Text = "Camera";
-            this.btnCamera.UseVisualStyleBackColor = true;
-            this.btnCamera.Click += new System.EventHandler(this.CategoryButton_Click);
+            this.btnCatPhone.AutoSize = true;
+            this.btnCatPhone.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.btnCatPhone.Location = new System.Drawing.Point(355, 9);
+            this.btnCatPhone.Name = "btnCatPhone";
+            this.btnCatPhone.Size = new System.Drawing.Size(75, 35);
+            this.btnCatPhone.TabIndex = 4;
+            this.btnCatPhone.Text = "Phone";
+            this.btnCatPhone.UseVisualStyleBackColor = true;
+            this.btnCatPhone.Click += new System.EventHandler(this.CategoryButton_Click);
             // 
-            // btnTV
+            // btnCatTablet
             // 
-            this.btnTV.FlatAppearance.BorderSize = 0;
-            this.btnTV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTV.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.btnTV.Location = new System.Drawing.Point(514, 9);
-            this.btnTV.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.btnTV.Name = "btnTV";
-            this.btnTV.Size = new System.Drawing.Size(56, 35);
-            this.btnTV.TabIndex = 5;
-            this.btnTV.Text = "TV";
-            this.btnTV.UseVisualStyleBackColor = true;
-            this.btnTV.Click += new System.EventHandler(this.CategoryButton_Click);
+            this.btnCatTablet.AutoSize = true;
+            this.btnCatTablet.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.btnCatTablet.Location = new System.Drawing.Point(435, 9);
+            this.btnCatTablet.Name = "btnCatTablet";
+            this.btnCatTablet.Size = new System.Drawing.Size(75, 35);
+            this.btnCatTablet.TabIndex = 5;
+            this.btnCatTablet.Text = "Tablet";
+            this.btnCatTablet.UseVisualStyleBackColor = true;
+            this.btnCatTablet.Click += new System.EventHandler(this.CategoryButton_Click);
+            // 
+            // btnCatCamera
+            // 
+            this.btnCatCamera.AutoSize = true;
+            this.btnCatCamera.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.btnCatCamera.Location = new System.Drawing.Point(515, 9);
+            this.btnCatCamera.Name = "btnCatCamera";
+            this.btnCatCamera.Size = new System.Drawing.Size(85, 35);
+            this.btnCatCamera.TabIndex = 6;
+            this.btnCatCamera.Text = "Camera";
+            this.btnCatCamera.UseVisualStyleBackColor = true;
+            this.btnCatCamera.Click += new System.EventHandler(this.CategoryButton_Click);
+            // 
+            // btnCatTV
+            // 
+            this.btnCatTV.AutoSize = true;
+            this.btnCatTV.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.btnCatTV.Location = new System.Drawing.Point(605, 9);
+            this.btnCatTV.Name = "btnCatTV";
+            this.btnCatTV.Size = new System.Drawing.Size(46, 35);
+            this.btnCatTV.TabIndex = 7;
+            this.btnCatTV.Text = "TV";
+            this.btnCatTV.UseVisualStyleBackColor = true;
+            this.btnCatTV.Click += new System.EventHandler(this.CategoryButton_Click);
+            // 
+            // btnCatMonitor
+            // 
+            this.btnCatMonitor.AutoSize = true;
+            this.btnCatMonitor.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.btnCatMonitor.Location = new System.Drawing.Point(656, 9);
+            this.btnCatMonitor.Name = "btnCatMonitor";
+            this.btnCatMonitor.Size = new System.Drawing.Size(84, 35);
+            this.btnCatMonitor.TabIndex = 8;
+            this.btnCatMonitor.Text = "Monitor";
+            this.btnCatMonitor.UseVisualStyleBackColor = true;
+            this.btnCatMonitor.Click += new System.EventHandler(this.CategoryButton_Click);
+            // 
+            // btnCatAccessories
+            // 
+            this.btnCatAccessories.AutoSize = true;
+            this.btnCatAccessories.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.btnCatAccessories.Location = new System.Drawing.Point(745, 9);
+            this.btnCatAccessories.Name = "btnCatAccessories";
+            this.btnCatAccessories.Size = new System.Drawing.Size(113, 35);
+            this.btnCatAccessories.TabIndex = 9;
+            this.btnCatAccessories.Text = "Accessories";
+            this.btnCatAccessories.UseVisualStyleBackColor = true;
+            this.btnCatAccessories.Click += new System.EventHandler(this.CategoryButton_Click);
+            // 
+            // btnCatHeadphones
+            // 
+            this.btnCatHeadphones.AutoSize = true;
+            this.btnCatHeadphones.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.btnCatHeadphones.Location = new System.Drawing.Point(863, 9);
+            this.btnCatHeadphones.Name = "btnCatHeadphones";
+            this.btnCatHeadphones.Size = new System.Drawing.Size(117, 35);
+            this.btnCatHeadphones.TabIndex = 10;
+            this.btnCatHeadphones.Text = "Headphones";
+            this.btnCatHeadphones.UseVisualStyleBackColor = true;
+            this.btnCatHeadphones.Click += new System.EventHandler(this.CategoryButton_Click);
+            // 
+            // btnCatWebcam
+            // 
+            this.btnCatWebcam.AutoSize = true;
+            this.btnCatWebcam.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.btnCatWebcam.Location = new System.Drawing.Point(985, 9);
+            this.btnCatWebcam.Name = "btnCatWebcam";
+            this.btnCatWebcam.Size = new System.Drawing.Size(91, 35);
+            this.btnCatWebcam.TabIndex = 11;
+            this.btnCatWebcam.Text = "Webcam";
+            this.btnCatWebcam.UseVisualStyleBackColor = true;
+            this.btnCatWebcam.Click += new System.EventHandler(this.CategoryButton_Click);
             // 
             // CustomerHomePage
             // 
@@ -222,7 +295,9 @@
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             this.pnlCategories.ResumeLayout(false);
+            this.pnlCategories.PerformLayout();
             this.ResumeLayout(false);
+
         }
         #endregion
 
@@ -233,11 +308,17 @@
         private System.Windows.Forms.FlowLayoutPanel pnlBody;
         private System.Windows.Forms.Label lblWelcomeUser;
         private System.Windows.Forms.FlowLayoutPanel pnlCategories;
-        private System.Windows.Forms.Button btnComputer;
-        private System.Windows.Forms.Button btnWatch;
-        private System.Windows.Forms.Button btnPhone;
-        private System.Windows.Forms.Button btnTablet;
-        private System.Windows.Forms.Button btnCamera;
-        private System.Windows.Forms.Button btnTV;
+        private System.Windows.Forms.Button btnCatALL;
+        private System.Windows.Forms.Button btnCatLaptop;
+        private System.Windows.Forms.Button btnCatDesktop;
+        private System.Windows.Forms.Button btnCatWatch;
+        private System.Windows.Forms.Button btnCatPhone;
+        private System.Windows.Forms.Button btnCatTablet;
+        private System.Windows.Forms.Button btnCatCamera;
+        private System.Windows.Forms.Button btnCatTV;
+        private System.Windows.Forms.Button btnCatMonitor;
+        private System.Windows.Forms.Button btnCatAccessories;
+        private System.Windows.Forms.Button btnCatHeadphones;
+        private System.Windows.Forms.Button btnCatWebcam;
     }
 }

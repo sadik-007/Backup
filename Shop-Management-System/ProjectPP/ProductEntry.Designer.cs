@@ -91,6 +91,7 @@
             this.cmbProductType.Name = "cmbProductType";
             this.cmbProductType.Size = new System.Drawing.Size(280, 33);
             this.cmbProductType.TabIndex = 1;
+            this.cmbProductType.SelectedIndexChanged += new System.EventHandler(this.cmbProductType_SelectedIndexChanged);
             // 
             // lblBrand
             // 

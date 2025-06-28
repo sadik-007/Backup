@@ -120,6 +120,7 @@
             this.txtFeatures.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtFeatures.Size = new System.Drawing.Size(540, 260);
             this.txtFeatures.TabIndex = 10;
+            this.txtFeatures.TabStop = false; // <-- THIS IS THE FIX
             // 
             // lblUnavailable
             // 

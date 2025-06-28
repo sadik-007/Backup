@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
-using System.Windows.Forms;
 using System.Linq;
+using System.Text;
+using System.Windows.Forms;
 
 namespace ProjectPP
 {
@@ -24,7 +26,7 @@ namespace ProjectPP
             LoadProductsFromDatabase();
         }
 
-        private void LoadProductsFromDatabase(string categoryFilter = null)
+        private void LoadProductsFromDatabase(string categoryFilter = null, string searchTerm = null)
         {
             pnlBody.Controls.Clear();
             try
@@ -32,29 +34,52 @@ namespace ProjectPP
                 using (SqlConnection sqlCon = new SqlConnection(connectionString))
                 {
                     sqlCon.Open();
-                    string query = "SELECT * FROM Product_Details";
-                    if (!string.IsNullOrEmpty(categoryFilter))
+                    var queryBuilder = new StringBuilder("SELECT * FROM Product_Details");
+                    var conditions = new List<string>();
+
+                    // Add category condition if a specific category (not "ALL") is chosen
+                    if (!string.IsNullOrEmpty(categoryFilter) && categoryFilter.ToUpper() != "ALL")
                     {
-                        query += " WHERE Product_type = @Category";
+                        conditions.Add("Product_type = @Category");
+                    }
+                    // Add search condition if a search term is provided
+                    if (!string.IsNullOrEmpty(searchTerm))
+                    {
+                        conditions.Add("(Model LIKE @SearchTerm OR Brand_name LIKE @SearchTerm)");
                     }
 
-                    using (SqlCommand sqlCmd = new SqlCommand(query, sqlCon))
+                    if (conditions.Count > 0)
                     {
-                        if (!string.IsNullOrEmpty(categoryFilter))
+                        queryBuilder.Append(" WHERE " + string.Join(" AND ", conditions));
+                    }
+
+                    using (SqlCommand sqlCmd = new SqlCommand(queryBuilder.ToString(), sqlCon))
+                    {
+                        if (!string.IsNullOrEmpty(categoryFilter) && categoryFilter.ToUpper() != "ALL")
                         {
                             sqlCmd.Parameters.AddWithValue("@Category", categoryFilter);
+                        }
+                        if (!string.IsNullOrEmpty(searchTerm))
+                        {
+                            sqlCmd.Parameters.AddWithValue("@SearchTerm", "%" + searchTerm + "%");
                         }
 
                         using (SqlDataReader reader = sqlCmd.ExecuteReader())
                         {
+                            if (!reader.HasRows)
+                            {
+                                Label noProductsLabel = new Label { Text = "No products found.", Font = new Font("Segoe UI", 14F), ForeColor = Color.Gray, AutoSize = false, TextAlign = ContentAlignment.MiddleCenter, Size = pnlBody.Size };
+                                pnlBody.Controls.Add(noProductsLabel);
+                                return;
+                            }
                             while (reader.Read())
                             {
                                 pnlBody.Controls.Add(CreateProductCard(
                                     reader["Product_code"].ToString(),
                                     reader["Image"] as byte[],
                                     reader["Model"].ToString(),
-                                    Convert.ToDecimal(reader["Current_Price"]),
-                                    Convert.ToDecimal(reader["Regular_Price"]),
+                                    reader["Current_Price"] is DBNull ? 0 : Convert.ToDecimal(reader["Current_Price"]),
+                                    reader["Regular_Price"] is DBNull ? 0 : Convert.ToDecimal(reader["Regular_Price"]),
                                     reader["Status"].ToString(),
                                     reader["Brand_name"].ToString(),
                                     reader["Key_Features"].ToString(),
@@ -67,7 +92,7 @@ namespace ProjectPP
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Failed to load products. \nError: " + ex.Message, "Database Error");
+                MessageBox.Show("Failed to load products. Error: " + ex.Message, "Database Error");
             }
         }
 
@@ -116,9 +141,67 @@ namespace ProjectPP
             return card;
         }
 
-        private void btnSearch_Click(object sender, EventArgs e) { /* ... */ }
-        private void CategoryButton_Click(object sender, EventArgs e) { /* ... */ }
-        private void txtSearch_Enter(object sender, EventArgs e) { /* ... */ }
-        private void txtSearch_Leave(object sender, EventArgs e) { /* ... */ }
+        private void lblShopName_Click(object sender, EventArgs e)
+        {
+            txtSearch.Text = "Search Products...";
+            txtSearch.ForeColor = Color.Gray;
+            LoadProductsFromDatabase();
+        }
+
+        private void CategoryButton_Click(object sender, EventArgs e)
+        {
+            Button clickedButton = sender as Button;
+            if (clickedButton != null)
+            {
+                string category = clickedButton.Text;
+                txtSearch.Text = "Search Products...";
+                txtSearch.ForeColor = Color.Gray;
+
+                // If "ALL" is clicked, pass null to the filter to show all products
+                if (category.ToUpper() == "ALL")
+                {
+                    LoadProductsFromDatabase(null, null);
+                }
+                else
+                {
+                    LoadProductsFromDatabase(category, null);
+                }
+            }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string searchTerm = txtSearch.Text;
+            if (searchTerm != "Search Products...")
+            {
+                LoadProductsFromDatabase(null, searchTerm);
+            }
+        }
+
+        private void txtSearch_Enter(object sender, EventArgs e)
+        {
+            if (txtSearch.Text == "Search Products...")
+            {
+                txtSearch.Text = "";
+                txtSearch.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtSearch_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtSearch.Text))
+            {
+                txtSearch.Text = "Search Products...";
+                txtSearch.ForeColor = Color.Gray;
+            }
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (txtSearch.Focused && txtSearch.Text != "Search Products...")
+            {
+                LoadProductsFromDatabase(null, txtSearch.Text);
+            }
+        }
     }
 }
